@@ -1,6 +1,6 @@
 # HandSign: fresh real-time sign-language recognizer
 
-This is a new project for recognizing these six labels from a webcam:
+This is a new project for recognizing these eight labels from a webcam:
 
 `A`, `B`, `C`, `HI`, `BYE`, `THANK_YOU`, `YES`, and `NO`
 
@@ -11,7 +11,7 @@ It combines the useful ideas from the two supplied projects into one smaller pip
 3. A PyTorch GRU learns both static poses (`A`, `B`, `C`) and motion gestures (`HI`, `BYE`, `THANK_YOU`).
 4. One real-time program displays the current prediction and confidence.
 
-The old projects and their checkpoints are not imported or required. You collect and train your own data for this exact label set.
+The old projects and their checkpoints are not imported or required. You can either collect and train your own data or use the included training bundle.
 
 ## 1. Install
 
@@ -61,6 +61,28 @@ Press `Q` to quit. The display includes the detected hand landmarks, smoothed pr
 ```powershell
 uv run evaluate-signs --checkpoint artifacts/gesture_model.pt
 ```
+
+## 6. Run it on another laptop using the included dataset
+
+The repository contains `artifacts/handsign_training_bundle.zip`. It includes 341 landmark sequences and the trained eight-class model. From the project root, extract it while preserving its folders:
+
+```powershell
+Expand-Archive artifacts/handsign_training_bundle.zip -DestinationPath . -Force
+```
+
+Then run the recognizer without collecting new samples or retraining:
+
+```powershell
+uv run realtime-signs --checkpoint artifacts/gesture_model.pt --camera 0
+```
+
+To retrain from the included dataset instead:
+
+```powershell
+uv run train-signs --epochs 40
+```
+
+The dataset contains hand landmark sequences rather than raw camera images. A friend can also collect a new dataset by following Section 2.
 
 ## Project layout
 
