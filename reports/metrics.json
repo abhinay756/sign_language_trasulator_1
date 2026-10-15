@@ -1,0 +1,28 @@
+{
+  "classes": [
+    "A",
+    "B",
+    "C",
+    "HI",
+    "BYE",
+    "THANK_YOU",
+    "YES",
+    "NO"
+  ],
+  "sample_counts": {
+    "A": 43,
+    "B": 40,
+    "C": 40,
+    "HI": 40,
+    "BYE": 40,
+    "THANK_YOU": 40,
+    "YES": 58,
+    "NO": 40
+  },
+  "results": {
+    "GRU project model": 0.9130434782608695,
+    "ANN": 0.7971014492753623,
+    "CNN": 0.4782608695652174,
+    "QNN simulation": 0.15942028985507245
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "classes": ["A", "B", "C", "HI", "BYE", "THANK_YOU", "YES", "NO"],
+  "sequence_length": 30,
+  "camera_width": 960,
+  "camera_height": 540
+}
